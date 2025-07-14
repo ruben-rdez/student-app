@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Edit Student</title>
+    <title>Student Edit</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-    <h1>Edit Student</h1>
+    <h1>Student Edit</h1>
     <form th:action="@{'/students/edit/' + ${student.id}}" th:object="${student}" method="post">
         <input type="hidden" th:field="*{id}" />
         <label>Name:</label>

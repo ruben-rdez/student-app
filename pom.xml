@@ -73,6 +73,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>student-app</finalName>
 	</build>
-
 </project>
