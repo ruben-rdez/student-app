@@ -1,4 +1,4 @@
-# Student Management Application
+# Students Management Application
 
 This is a Spring Boot application for managing student information. The application provides a web interface for performing CRUD (Create, Read, Update, Delete) operations on student records.
 

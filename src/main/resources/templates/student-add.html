@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Student Add</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
     <h1>Student Add</h1>
-    <form th:action="@{/students/add}" th:object="${student}" method="post">
+    <form th:action="@{/api/v1/students/add}" th:object="${student}" method="post">
         <input type="hidden" th:field="*{id}" />
-        <label>Name:</label>
-        <input type="text" th:field="*{name}" /><br/>
-        <label>Email:</label>
-        <input type="email" th:field="*{email}" /><br/>
-        <label>Phone:</label>
-        <input type="text" th:field="*{phone}" /><br/>
+        <label for="name">Name:</label>
+        <input type="text" th:field="*{name}" />
+        <br/>
+        <label for="email">Email:</label>
+        <input type="email" th:field="*{email}" />
+        <br/>
+        <label for="phone">Phone:</label>
+        <input type="text" th:field="*{phone}" />
+        <br/>
         <button type="submit">Save</button>
-        <button type="button" th:onclick="|window.location.href='@{/students}';|">Back to List</button>
+        <button type="button" th:onclick="|window.location.href='@{/api/v1/students}';|">Back to List</button>
     </form>
 </body>
 </html>

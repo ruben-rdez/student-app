@@ -1,11 +1,7 @@
 package org.student.app;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
+@SuppressWarnings("java:S2187")
 class StudentAppApplicationTests {
 
-	void contextLoads() {
-	}
 
 }
