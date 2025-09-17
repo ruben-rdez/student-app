@@ -60,6 +60,7 @@ src/
 │   │               ├── model/
 │   │               ├── repository/
 │   │               ├── service/
+│   │               ├── exception/  
 │   │               └── StudentAppApplication.java
 │   └── resources/
 │       ├── static/
@@ -116,4 +117,4 @@ mvn test
 
 ## Contact
 
-[Add your contact information here]
+jrubenrm@hotmail.com
