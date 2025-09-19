@@ -50,24 +50,26 @@ The application will be accessible at `http://localhost:8080`
 ## Project Structure
 
 ```
-src/
-├── main/
-│   ├── java/
-│   │   └── org/
-│   │       └── student/
-│   │           └── app/
-│   │               ├── controller/
-│   │               ├── model/
-│   │               ├── repository/
-│   │               ├── service/
-│   │               ├── exception/  
-│   │               └── StudentAppApplication.java
-│   └── resources/
-│       ├── static/
-│       │   └── css/
-│       └── templates/
-└── test/
-    └── java/
+student-app/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── controller/         # REST controllers
+│   │   │   ├── service/            # Business logic
+│   │   │   ├── repository/         # Data access
+│   │   │   ├── model/              # Entity classes
+│   │   │   ├── dto/                # Data Transfer Objects (DTOs)
+│   │   │   ├── util/               # Utility classes (DTO/entity mapping)
+│   │   │   ├── exception/          # Global Exception Handler
+│   │   │   └── StudentApp.java     # Main application class
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/
+│       └── java/                   # Unit and integration tests
+│
+├── pom.xml
+└── README.md
 ```
 
 ## API Endpoints
