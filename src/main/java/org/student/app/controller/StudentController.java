@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.student.app.dto.StudentRequest;
+import org.student.app.dto.StudentResponse;
 import org.student.app.model.Student;
 import org.student.app.service.StudentService;
 
@@ -52,9 +54,9 @@ public class StudentController {
 
     @PostMapping("/add")
     @Operation(summary = "Add a new student", description = "Create a new student")
-    public String addStudent(@ModelAttribute Student student) {
-        logger.info("Adding new student: {}", student.getName());
-        studentService.addStudent(student);
+    public String addStudent(@ModelAttribute StudentRequest studentRequest) {
+        logger.info("Adding new student: {}", studentRequest.name());
+        studentService.addStudent(studentRequest);
         return REDIRECT_STUDENTS;
     }
 
@@ -62,20 +64,19 @@ public class StudentController {
     @Operation(summary = "Show edit student form", description = "Display the form to edit an existing student")
     public String editStudentForm(@PathVariable Long id, Model model) {
         logger.info("Showing edit student form for ID: {}", id);
-        Student student = studentService.getStudentById(id);
-        if (student == null) {
+        StudentResponse studentResponse = studentService.getStudentById(id);
+        if (studentResponse == null) {
             return REDIRECT_STUDENTS;
         }
-        model.addAttribute(MODEL_STUDENT, student);
+        model.addAttribute(MODEL_STUDENT, studentResponse);
         return "student-edit";
     }
 
     @PutMapping("/edit/{id}")
     @Operation(summary = "Edit an existing student", description = "Update the details of an existing student")
-    public String editStudent(@PathVariable Long id, @ModelAttribute Student student) {
+    public String editStudent(@PathVariable Long id, @ModelAttribute StudentRequest studentRequest) {
         logger.info("Editing student with ID: {}", id);
-        student.setId(id);
-        studentService.updateStudent(id, student);
+        studentService.updateStudent(id, studentRequest);
         return REDIRECT_STUDENTS;
     }
 
@@ -91,11 +92,11 @@ public class StudentController {
     @Operation(summary = "View student details", description = "View detailed information about a specific student")
     public String viewStudent(@PathVariable Long id, Model model) {
         logger.info("Viewing student with ID: {}", id);
-        Student student = studentService.getStudentById(id);
-        if (student == null) {
+        StudentResponse studentResponse = studentService.getStudentById(id);
+        if (studentResponse == null) {
             return REDIRECT_STUDENTS;
         }
-        model.addAttribute(MODEL_STUDENT, student);
+        model.addAttribute(MODEL_STUDENT, studentResponse);
         return "view-student";
     }
 
